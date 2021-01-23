@@ -1,3 +1,8 @@
-import {addNewElements} from  './load'
+import {addNewElements} from  './load';
+import {addContacts} from './contacts';
 
-window.onload = addNewElements();
+window.onload = () => {
+  addNewElements();
+  addContacts();
+  
+}
