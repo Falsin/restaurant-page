@@ -9,6 +9,10 @@
   box-sizing: border-box;
 }
 
+body {
+  background: brown;
+}
+
 img {
   .size(50vmin, 50vmin);
 }
@@ -17,24 +21,40 @@ img {
   .size(90vmin, auto);
 }
 
-#tabs, #tabs * {
+/* #tabs, #tabs * {
   border: solid red 1px;
-}
+} */
 
 #control {
   .size(100%, 12%);
+  background: gray;
 }
 
 #text {
-  padding: 0 2vmin 2vmin 2vmin;
   position: relative;
+  background: brown;
 }
 
 #contacts {
+  top: 0;
+  padding: 0 2vmin 2vmin 2vmin;
   position: absolute;
   transform-origin: center top;
-  transform: scaleY(0.1);
-  transition-duration: 2s;
+  transform: scaleY(0);
+  transition: 2s;
+  background: white;
+  z-index: 5;
+}
+
+#menu {
+  padding: 0 2vmin 2vmin 2vmin;
+  position: relative;
+  transform-origin: center top;
+  transform: scaleY(0);
+  transition: 2s;
+  top: 0;
+  background: white;
+  z-index: 5;
 }
 
 button {
@@ -42,11 +62,18 @@ button {
   cursor: pointer;
 }
 
-#tabs:hover #contacts {
-  transform: scale(1);
-}
-
 h2 {
   margin-top: 2vmin;
   margin-bottom: 2vmin;
+}
+
+.active {
+  background: red;
+}
+
+#contacts.show,
+#menu.show {
+  transform: scaleY(1);
+  display: block;
+  z-index: 6;
 }
