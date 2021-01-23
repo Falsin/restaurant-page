@@ -6,6 +6,7 @@
 * {
   padding: 0;
   margin: 0;
+  box-sizing: border-box;
 }
 
 img {
@@ -13,9 +14,39 @@ img {
 }
 
 #tabs {
-  .size(90vmin, 40vmin);
+  .size(90vmin, auto);
 }
 
 #tabs, #tabs * {
   border: solid red 1px;
+}
+
+#control {
+  .size(100%, 12%);
+}
+
+#text {
+  padding: 0 2vmin 2vmin 2vmin;
+  position: relative;
+}
+
+#contacts {
+  position: absolute;
+  transform-origin: center top;
+  transform: scaleY(0.1);
+  transition-duration: 2s;
+}
+
+button {
+  .size(9vmin, 5vmin);
+  cursor: pointer;
+}
+
+#tabs:hover #contacts {
+  transform: scale(1);
+}
+
+h2 {
+  margin-top: 2vmin;
+  margin-bottom: 2vmin;
 }
