@@ -1,3 +1,17 @@
+import {addContacts} from './contacts';
+import {addMenu} from './menu'
+
+function pageLoad() {
+  addNewElements();
+  addContacts();
+  addMenu();
+
+  let btn = document.getElementById('contactBtn');
+  let contacts = document.getElementById('contacts');
+  btn.classList.add('active');
+  contacts.classList.add('show');
+}
+
 function addNewElements() {
   const container = document.getElementById('content');
 
@@ -12,16 +26,19 @@ function addNewElements() {
 
   let controlField = createELem(tabs, 'div');
   controlField.id = 'control';
+
   let firstBtn = createELem(controlField, 'button');
+  firstBtn.id = 'contactBtn';
+  firstBtn.classList.add('btn');
   firstBtn.textContent = 'Contacts';
 
   let secondBtn = createELem(controlField, 'button');
+  secondBtn.id = 'menuBtn';
+  secondBtn.classList.add('btn');
   secondBtn.textContent = 'Menu';
 
   let textField = createELem(tabs, 'div');
   textField.id = 'text';
-  /* let head = createELem(textField, 'h2'); */
-  /*let paragraph = createELem(textField, 'p'); */
 }
 
 function createELem(parentElem, currentElem) {
@@ -31,5 +48,5 @@ function createELem(parentElem, currentElem) {
 }
 
 
-export {addNewElements};
 export {createELem};
+export {pageLoad};
