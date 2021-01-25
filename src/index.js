@@ -10,10 +10,9 @@ btns.forEach((item, id) => {
     for (let i = 0; i < btns.length; i++) {
       btns[i].classList.remove('active');
       textContent[i].classList.remove('show')
-      /* textContent[i].style.zIndex = '5'; */
     }
     item.classList.add('active');
     textContent[id].classList.add('show');
-/*     textContent[id].style.zIndex = '6'; */
   })
 })
+
