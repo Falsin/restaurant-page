@@ -10,70 +10,25 @@
 }
 
 body {
-  background: brown;
+  background: black;
+  display: flex;
+  flex-direction: column;
 }
 
-img {
-  .size(50vmin, 50vmin);
-}
-
-#tabs {
-  .size(90vmin, auto);
-}
-
-/* #tabs, #tabs * {
+body * {
   border: solid red 1px;
-} */
-
-#control {
-  .size(100%, 12%);
-  background: gray;
 }
 
-#text {
-  position: relative;
-  background: brown;
+header {
+  .size(100%, 5vh);
+  color: white;
+  font-family: 'Dancing Script', serif;
 }
 
-#contacts {
-  top: 0;
-  padding: 0 2vmin 2vmin 2vmin;
-  position: absolute;
-  transform-origin: center top;
-  transform: scaleY(0);
-  transition: 2s;
-  background: white;
-  z-index: 5;
+#slideBar {
+  .size(100%, 100vh);
 }
 
-#menu {
-  padding: 0 2vmin 2vmin 2vmin;
-  position: relative;
-  transform-origin: center top;
-  transform: scaleY(0);
-  transition: 2s;
-  top: 0;
-  background: white;
-  z-index: 5;
-}
-
-button {
-  .size(9vmin, 5vmin);
-  cursor: pointer;
-}
-
-h2 {
-  margin-top: 2vmin;
-  margin-bottom: 2vmin;
-}
-
-.active {
-  background: red;
-}
-
-#contacts.show,
-#menu.show {
-  transform: scaleY(1);
-  display: block;
-  z-index: 6;
+footer {
+  .size(100%, 5vh);
 }
