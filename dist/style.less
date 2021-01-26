@@ -56,14 +56,17 @@ header img {
 
 #slideBar {
   .size(100%, auto);
+  display: flex;
+  justify-content: center;
 }
 
-#slideBar input {
+#labels input {
   position: absolute;
+  display: none;
 }
 
 #slide {
-  .size(100vmin, 100vmin);
+.size(100vmin, 80vmin);
   position: relative;
 }
 
@@ -74,6 +77,9 @@ header img {
 #slide #labels {
   bottom: 5vmin;
   position: absolute;
+  transform: translateX(-50%);
+  left: 50%;
+  display: flex;
 }
 
 #slide label {
@@ -83,6 +89,7 @@ header img {
   border-radius: 50%;
   margin-left: 1vmin;
   margin-right: 1vmin;
+  cursor: pointer;
 }
 
 #slide label::before {
@@ -90,11 +97,21 @@ header img {
   .size(10px, 10px);
   position: relative;
   display: block;
-  background: gray;
   border-radius: 50%;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
+}
+
+input:first-of-type:checked ~ label:first-of-type::before,
+input:nth-of-type(2):checked ~ label:nth-of-type(2)::before,
+input:nth-of-type(3):checked ~ label:nth-of-type(3)::before,
+input:nth-of-type(4):checked ~ label:nth-of-type(4)::before,
+input:nth-of-type(5):checked ~ label:nth-of-type(5)::before,
+input:nth-of-type(6):checked ~ label:nth-of-type(6)::before,
+input:nth-of-type(7):checked ~ label:nth-of-type(7)::before,
+input:nth-of-type(8):checked ~ label:nth-of-type(8)::before {
+  background: gray;
 }
 
 footer {
