@@ -50,12 +50,51 @@ nav {
   margin-left: auto;
 }
 
-img {
+header img {
   .size(auto, 100%);
 }
 
 #slideBar {
-  .size(100%, 100vh);
+  .size(100%, auto);
+}
+
+#slideBar input {
+  position: absolute;
+}
+
+#slide {
+  .size(100vmin, 100vmin);
+  position: relative;
+}
+
+#slide img {
+  .size(100%, 100%);
+}
+
+#slide #labels {
+  bottom: 5vmin;
+  position: absolute;
+}
+
+#slide label {
+  display: inline-block;
+  .size(16px, 16px);
+  background: red;
+  border-radius: 50%;
+  margin-left: 1vmin;
+  margin-right: 1vmin;
+}
+
+#slide label::before {
+  content: "";
+  .size(10px, 10px);
+  position: relative;
+  display: block;
+  background: gray;
+  border-radius: 50%;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
 }
 
 footer {
