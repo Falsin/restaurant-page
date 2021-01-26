@@ -1,18 +1,24 @@
-import {pageLoad} from  './load';
+const body = document.querySelector('body');
+const header = createELem(body, 'header');
+const headerBox = createELem(header, 'div');
+const logo = createELem(headerBox, 'div');
 
-pageLoad();
+headerBox.classList.add('container');
+logo.id = 'logo';
+logo.textContent = 'Good Food';
 
-const btns = document.querySelectorAll('.btn');
-let textContent = [...document.getElementById('text').childNodes];
+const nav = createELem(headerBox, 'nav');
+const img = createELem(nav, 'img');
+img.src = 'images/nav.svg';
 
-btns.forEach((item, id) => {
-  item.addEventListener('mousedown', () => {
-    for (let i = 0; i < btns.length; i++) {
-      btns[i].classList.remove('active');
-      textContent[i].classList.remove('show')
-    }
-    item.classList.add('active');
-    textContent[id].classList.add('show');
-  })
-})
 
+const slideBar = createELem(body, 'div');
+slideBar.id = 'slideBar'
+
+const footer = createELem(body, 'footer');
+
+function createELem(parentElem, currentElem) {	
+  let elem = document.createElement(currentElem);	
+  parentElem.appendChild(elem);	
+  return elem;	
+}
