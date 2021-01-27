@@ -31,7 +31,7 @@ header {
   padding-bottom: 2vmin;
 }
 
-.container {
+header .container {
   display: flex;
   .size(80%, 80%);
 }
@@ -115,5 +115,28 @@ input:nth-of-type(8):checked ~ label:nth-of-type(8)::before {
 }
 
 footer {
-  .size(100%, 5vh);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: hsl(0, 0%, 44%);
+}
+
+footer .container {
+  display: flex;
+  .size(100%, 100%);
+  justify-content: center;
+}
+
+#socialNetworks {
+  display: flex;
+}
+
+#socialNetworks div {
+  margin-left: 1vmin;
+  margin-right: 1vmin;
+  .size(7vmin, 7vmin);
+}
+
+#socialNetworks div img {
+  .size(100%, 100%);
 }

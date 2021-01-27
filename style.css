@@ -23,7 +23,7 @@ header {
   padding-top: 2vmin;
   padding-bottom: 2vmin;
 }
-.container {
+header .container {
   display: flex;
   width: 80%;
   height: 80%;
@@ -103,6 +103,27 @@ input:nth-of-type(8):checked ~ label:nth-of-type(8)::before {
   background: gray;
 }
 footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: hsl(0, 0%, 44%);
+}
+footer .container {
+  display: flex;
   width: 100%;
-  height: 5vh;
+  height: 100%;
+  justify-content: center;
+}
+#socialNetworks {
+  display: flex;
+}
+#socialNetworks div {
+  margin-left: 1vmin;
+  margin-right: 1vmin;
+  width: 7vmin;
+  height: 7vmin;
+}
+#socialNetworks div img {
+  width: 100%;
+  height: 100%;
 }
