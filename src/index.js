@@ -57,12 +57,10 @@ let changeImages = (() => {
   }
 
   function change(id) {
-    setTimeout(() => {
+    id = changeId(id);
+    this.timerId = setInterval(() => {
       id = changeId(id);
-      this.timerId = setInterval(() => {
-        id = changeId(id);
-      }, 4000)
-    }) 
+    }, 1000)
   }
   return {timerId, change}
 })()
@@ -84,8 +82,25 @@ arrayLabels.forEach((item, id) => {
   })
 })
 
-
 const footer = createELem(body, 'footer');
+const footerBox = createELem(footer, 'div');
+footerBox.classList.add('container');
+
+const socialNetworks = createELem(footerBox, 'div');
+socialNetworks.id = 'socialNetworks';
+
+let facebookDiv = createELem(socialNetworks, 'div');
+let facebookImg = createELem(facebookDiv, 'img');
+facebookImg.src = 'images/facebook.svg';
+
+let twitterDiv = createELem(socialNetworks, 'div');
+let twitterImg = createELem(twitterDiv, 'img');
+twitterImg.src = 'images/twitter.svg';
+
+let instagramDiv = createELem(socialNetworks, 'div');
+let instagramImg = createELem(instagramDiv, 'img');
+instagramImg.src = 'images/instagram.svg';
+
 
 function createELem(parentElem, currentElem) {	
   let elem = document.createElement(currentElem);	
