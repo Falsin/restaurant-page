@@ -40,9 +40,6 @@ for (let i = 0; i < 8; i++) {
   arrayBoxes[i].type = 'radio';
   arrayBoxes[i].setAttribute('name', `slide`);
   arrayBoxes[i].id = `${i}`;
-  if (i == 0) {
-    arrayBoxes[i].setAttribute('checked', `checked`);
-  }
 }
 
 for (let i = 0; i < 8; i++) {
@@ -50,27 +47,43 @@ for (let i = 0; i < 8; i++) {
   arrayLabels[i].setAttribute('for', `${i}`);
 }
 
+let changeImages = (() => {
+  let timerId;
+
+  function changeId(id) {
+    picture.src = `${srcImages[id]}`;
+    arrayBoxes[id].checked = true;
+    return (id == 7) ? 0 : ++id;
+  }
+
+  function change(id) {
+    setTimeout(() => {
+      id = changeId(id);
+      this.timerId = setInterval(() => {
+        id = changeId(id);
+      }, 4000)
+    }) 
+  }
+  return {timerId, change}
+})()
+
+changeImages.change(0)
+
 arrayBoxes.forEach((item, id) => {
   item.addEventListener("change", () => {
     if (item.checked == true) {
-      picture.src = `${srcImages[id]}`
+      picture.src = `${srcImages[id]}`;
     }
   })
 })
 
-changeImages(0);
+arrayLabels.forEach((item, id) => {
+  item.addEventListener('mousedown', () => {
+    clearInterval(changeImages.timerId);
+    changeImages.change(id);
+  })
+})
 
-function changeImages(id) {
-  let that = this;
-  let timerId = setTimeout(function changeImage(id) {
-    picture.src = `${srcImages[id]}`;
-    arrayBoxes[id].checked = true;
-    id = (id == 7) ? 0 : ++id;
-    timerId = setTimeout(() => {
-      changeImage(id);
-    }, 4000);
-  }.bind(that, id)) 
-}
 
 const footer = createELem(body, 'footer');
 
