@@ -60,7 +60,7 @@ let changeImages = (() => {
     id = changeId(id);
     this.timerId = setInterval(() => {
       id = changeId(id);
-    }, 1000)
+    }, 4000)
   }
   return {timerId, change}
 })()
@@ -89,17 +89,27 @@ footerBox.classList.add('container');
 const socialNetworks = createELem(footerBox, 'div');
 socialNetworks.id = 'socialNetworks';
 
-let facebookDiv = createELem(socialNetworks, 'div');
-let facebookImg = createELem(facebookDiv, 'img');
+const facebookDiv = createELem(socialNetworks, 'div');
+const facebookImg = createELem(facebookDiv, 'img');
 facebookImg.src = 'images/facebook.svg';
 
-let twitterDiv = createELem(socialNetworks, 'div');
-let twitterImg = createELem(twitterDiv, 'img');
+const twitterDiv = createELem(socialNetworks, 'div');
+const twitterImg = createELem(twitterDiv, 'img');
 twitterImg.src = 'images/twitter.svg';
 
-let instagramDiv = createELem(socialNetworks, 'div');
-let instagramImg = createELem(instagramDiv, 'img');
+const instagramDiv = createELem(socialNetworks, 'div');
+const instagramImg = createELem(instagramDiv, 'img');
 instagramImg.src = 'images/instagram.svg';
+
+const adress = createELem(footerBox, 'div');
+adress.id = 'adress';
+adress.innerHTML = `© 2021 Good Food | <br> 1112 Parker St, Berkeley, CA 94702 | <br> (510) 024 — 377`;
+/* adress.innerHTML = adress.innerHTML.replace(/^([^\d]+)(.*)$/, '$1<br/>$2') */
+
+const orderBtn = createELem(footerBox, 'input');
+orderBtn.type = 'button';
+orderBtn.value = 'order online';
+
 
 
 function createELem(parentElem, currentElem) {	

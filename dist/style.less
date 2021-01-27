@@ -9,6 +9,10 @@
   box-sizing: border-box;
 }
 
+html, body {
+  .size(100vw, 100vh);
+}
+
 body {
   background: black;
   display: flex;
@@ -21,7 +25,7 @@ body > * {
 }
 
 header {
-  .size(100%, auto);
+  /* .size(100%, auto); */
   color: white;
   font-family: 'Dancing Script', serif;
   display: flex;
@@ -29,10 +33,12 @@ header {
   align-items: center;
   padding-top: 2vmin;
   padding-bottom: 2vmin;
+  flex-grow: 0.5;
 }
 
 header .container {
   display: flex;
+  align-items: center;
   .size(80%, 80%);
 }
 
@@ -41,11 +47,11 @@ header .container {
   justify-content: center;
   align-items: center;
   font-weight: 800;
-  font-size: 1.5em;
+  font-size: 1.6em;
 }
 
 nav {
-  .size(auto, 100%);
+  .size(auto, 10vmin);
   display: flex;
   margin-left: auto;
 }
@@ -55,7 +61,7 @@ header img {
 }
 
 #slideBar {
-  .size(100%, auto);
+  .size(100%, 80vmin);
   display: flex;
   justify-content: center;
 }
@@ -119,24 +125,35 @@ footer {
   justify-content: center;
   align-items: center;
   background: hsl(0, 0%, 44%);
+  flex-grow: 1.5;
 }
 
 footer .container {
+  padding-top: 2vmin;
   display: flex;
-  .size(100%, 100%);
+  .size(80%, 100%);
   justify-content: center;
+  flex-direction: column;
 }
 
 #socialNetworks {
+  margin-bottom: 2vmin;
   display: flex;
+  justify-content: center;
 }
 
 #socialNetworks div {
   margin-left: 1vmin;
   margin-right: 1vmin;
-  .size(7vmin, 7vmin);
+  .size(8vmin, 8vmin);
 }
 
 #socialNetworks div img {
   .size(100%, 100%);
+}
+
+#adress {
+  font-size: 0.9em;
+  margin-bottom: 2vmin;
+  text-align: center;
 }
