@@ -104,11 +104,17 @@ instagramImg.src = 'images/instagram.svg';
 const adress = createELem(footerBox, 'div');
 adress.id = 'adress';
 adress.innerHTML = `© 2021 Good Food | <br> 1112 Parker St, Berkeley, CA 94702 | <br> (510) 024 — 377`;
-/* adress.innerHTML = adress.innerHTML.replace(/^([^\d]+)(.*)$/, '$1<br/>$2') */
 
 const orderBtn = createELem(footerBox, 'input');
 orderBtn.type = 'button';
 orderBtn.value = 'order online';
+orderBtn.id = 'order';
+
+const author = createELem(footerBox, 'p');
+author.id = 'author';
+const link = createELem(author, 'a');
+link.textContent = 'Made by Falsin'
+link.href = 'https://github.com/Falsin';
 
 
 
