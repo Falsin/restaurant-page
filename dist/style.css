@@ -3,9 +3,6 @@
   margin: 0;
   box-sizing: border-box;
 }
-/* html, body {
-  .size(100vw, 100vh);
-} */
 body {
   background: black;
   display: flex;
@@ -16,7 +13,6 @@ body > * {
   border: solid red 1px;
 }
 header {
-  /* .size(100%, auto); */
   color: white;
   font-family: 'Dancing Script', serif;
   display: flex;
@@ -24,7 +20,6 @@ header {
   align-items: center;
   padding-top: 2vmin;
   padding-bottom: 2vmin;
-  /* flex-grow: 0.5; */
 }
 header .container {
   display: flex;
@@ -111,7 +106,6 @@ footer {
   justify-content: center;
   align-items: center;
   background: hsl(0, 0%, 44%);
-  /* flex-grow: 1.5; */
 }
 footer .container {
   padding-top: 2vmin;
@@ -152,5 +146,15 @@ footer .container {
   }
   footer {
     flex-grow: 1.5;
+  }
+}
+@media screen and (orientation: landscape) {
+  #slideBar {
+    width: 100vw;
+    height: 100vh;
+  }
+  #slide {
+    width: 100%;
+    height: 100%;
   }
 }
