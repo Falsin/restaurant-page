@@ -9,10 +9,6 @@
   box-sizing: border-box;
 }
 
-/* html, body {
-  .size(100vw, 100vh);
-} */
-
 body {
   background: black;
   display: flex;
@@ -25,7 +21,6 @@ body > * {
 }
 
 header {
-  /* .size(100%, auto); */
   color: white;
   font-family: 'Dancing Script', serif;
   display: flex;
@@ -33,7 +28,6 @@ header {
   align-items: center;
   padding-top: 2vmin;
   padding-bottom: 2vmin;
-  /* flex-grow: 0.5; */
 }
 
 header .container {
@@ -125,7 +119,6 @@ footer {
   justify-content: center;
   align-items: center;
   background: hsl(0, 0%, 44%);
-  /* flex-grow: 1.5; */
 }
 
 footer .container {
@@ -167,6 +160,15 @@ footer .container {
   }
   footer {
     flex-grow: 1.5;
+  }
+}
+
+@media screen and (orientation:landscape) {
+  #slideBar {
+    .size(100vw, 100vh);
+  }
+  #slide {
+    .size(100%, 100%);
   }
 }
   
