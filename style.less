@@ -9,9 +9,9 @@
   box-sizing: border-box;
 }
 
-html, body {
+/* html, body {
   .size(100vw, 100vh);
-}
+} */
 
 body {
   background: black;
@@ -33,7 +33,7 @@ header {
   align-items: center;
   padding-top: 2vmin;
   padding-bottom: 2vmin;
-  flex-grow: 0.5;
+  /* flex-grow: 0.5; */
 }
 
 header .container {
@@ -125,7 +125,7 @@ footer {
   justify-content: center;
   align-items: center;
   background: hsl(0, 0%, 44%);
-  flex-grow: 1.5;
+  /* flex-grow: 1.5; */
 }
 
 footer .container {
@@ -157,3 +157,16 @@ footer .container {
   margin-bottom: 2vmin;
   text-align: center;
 }
+
+@media screen and (orientation:portrait) {
+  html, body {
+    .size(100vw, 100vh);
+  }
+  header {
+    flex-grow: 0.5;
+  }
+  footer {
+    flex-grow: 1.5;
+  }
+}
+  

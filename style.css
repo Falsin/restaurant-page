@@ -3,11 +3,9 @@
   margin: 0;
   box-sizing: border-box;
 }
-html,
-body {
-  width: 100vw;
-  height: 100vh;
-}
+/* html, body {
+  .size(100vw, 100vh);
+} */
 body {
   background: black;
   display: flex;
@@ -26,7 +24,7 @@ header {
   align-items: center;
   padding-top: 2vmin;
   padding-bottom: 2vmin;
-  flex-grow: 0.5;
+  /* flex-grow: 0.5; */
 }
 header .container {
   display: flex;
@@ -113,7 +111,7 @@ footer {
   justify-content: center;
   align-items: center;
   background: hsl(0, 0%, 44%);
-  flex-grow: 1.5;
+  /* flex-grow: 1.5; */
 }
 footer .container {
   padding-top: 2vmin;
@@ -142,4 +140,17 @@ footer .container {
   font-size: 0.9em;
   margin-bottom: 2vmin;
   text-align: center;
+}
+@media screen and (orientation: portrait) {
+  html,
+  body {
+    width: 100vw;
+    height: 100vh;
+  }
+  header {
+    flex-grow: 0.5;
+  }
+  footer {
+    flex-grow: 1.5;
+  }
 }
