@@ -106,17 +106,19 @@ footer {
   justify-content: center;
   align-items: center;
   background: hsl(0, 0%, 44%);
+  padding-bottom: 3vmin;
 }
 footer .container {
-  padding-top: 2vmin;
+  padding-top: 4vmin;
   display: flex;
   width: 80%;
   height: 100%;
   justify-content: center;
   flex-direction: column;
+  align-items: center;
 }
 #socialNetworks {
-  margin-bottom: 2vmin;
+  margin-bottom: 4vmin;
   display: flex;
   justify-content: center;
 }
@@ -132,8 +134,20 @@ footer .container {
 }
 #adress {
   font-size: 0.9em;
-  margin-bottom: 2vmin;
   text-align: center;
+  line-height: 1.5;
+}
+#order {
+  margin-top: 4vmin;
+  padding: 1vmin 2vmin 1vmin 2vmin;
+  cursor: pointer;
+}
+#author {
+  margin-top: 4vmin;
+}
+#author a {
+  text-decoration: none;
+  color: white;
 }
 @media screen and (orientation: portrait) {
   html,
