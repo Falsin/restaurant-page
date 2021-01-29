@@ -28,6 +28,7 @@ header {
   align-items: center;
   padding-top: 2vmin;
   padding-bottom: 2vmin;
+  z-index: 2;
 }
 
 header .container {
@@ -58,6 +59,7 @@ header img {
   .size(100%, 80vmin);
   display: flex;
   justify-content: center;
+  z-index: 1;
 }
 
 #labels input {
@@ -118,8 +120,9 @@ footer {
   display: flex;
   justify-content: center;
   align-items: center;
-  background: hsl(0, 0%, 44%);
+  background: hsla(0, 0%, 44%, 0.5);
   padding-bottom: 3vmin;
+  z-index: 2;
 }
 
 footer .container {
@@ -153,10 +156,11 @@ footer .container {
   line-height: 1.5;
 }
 
-#order {
+#btnDiv {
   margin-top: 4vmin;
-  padding: 1vmin 2vmin 1vmin 2vmin;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
 }
 
 #author {
@@ -186,6 +190,51 @@ footer .container {
   }
   #slide {
     .size(100%, 100%);
+  }
+}
+
+@media screen and (orientation:landscape) and (min-width: 700px) {
+  body {
+    display: grid;
+    grid-template-rows: 20vh 80vh;
+  }
+  header {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+  #slideBar {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    .size(100%, 100%);
+  }
+  #slide {
+    .size(100%, 100%);
+  }
+  #slide #labels {
+    bottom: 10vmin;
+  }
+  footer {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    padding-bottom: 12vmin;
+  }
+  #btnDiv {
+    position: fixed;
+    bottom: 0;
+    .size(100%, auto);
+    background: black;
+    padding-top: 2vmin;
+    padding-bottom: 2vmin;
+  }
+  #btnDiv input {
+    padding: 1vmin 2vmin 1vmin 2vmin;
+    width: 90%;
   }
 }
   

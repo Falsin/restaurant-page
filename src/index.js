@@ -1,4 +1,4 @@
-import {createELem} from 'createELem.js';
+import {createELem} from './createElem';
 
 const body = document.querySelector('body');
 const header = createELem(body, 'header');
@@ -88,7 +88,8 @@ const instagramImg = createELem(instagramDiv, 'img', 'src:images/instagram.svg')
 const adress = createELem(footerBox, 'div', 'id:adress');
 adress.innerHTML = `© 2021 Good Food | <br> 1112 Parker St, Berkeley, CA 94702 | <br> (510) 024 — 377`;
 
-const orderBtn = createELem(footerBox, 'input', 'type:button', 'id:order', 'value:order online');
+const btnDiv = createELem(footerBox, 'div', 'id:btnDiv');
+const orderBtn = createELem(btnDiv, 'input', 'type:button', 'id:order', 'value:order online');
 
 const author = createELem(footerBox, 'p', 'id:author');
 const link = createELem(author, 'a');
