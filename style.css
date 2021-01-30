@@ -3,15 +3,19 @@
   margin: 0;
   box-sizing: border-box;
 }
+/* html {
+  overflow-y: hidden;
+} */
 body {
   background: black;
   display: flex;
   flex-direction: column;
   font-size: 16px;
+  overflow-x: hidden;
 }
-body > * {
+/* body > * {
   border: solid red 1px;
-}
+} */
 header {
   color: hsl(0, 0%, 100%);
   font-family: 'Dancing Script', serif;
@@ -121,33 +125,33 @@ footer .container {
   flex-direction: column;
   align-items: center;
 }
-#socialNetworks {
+.socialNetworks {
   margin-bottom: 4vmin;
   display: flex;
   justify-content: center;
 }
-#socialNetworks div {
+.socialNetworks div {
   margin-left: 1vmin;
   margin-right: 1vmin;
   width: 8vmin;
   height: 8vmin;
 }
-#socialNetworks div img {
+.socialNetworks div img {
   width: 100%;
   height: 100%;
 }
-#adress {
+.adress {
   font-size: 0.9em;
   text-align: center;
   line-height: 1.5;
 }
-#btnDiv {
+.btnDiv {
   margin-top: 4vmin;
   cursor: pointer;
   display: flex;
   justify-content: center;
 }
-#btnDiv input {
+.btnDiv input {
   font-size: 1.2em;
   border-radius: 5px;
   border: none;
@@ -159,6 +163,12 @@ footer .container {
 #author a {
   text-decoration: none;
   color: white;
+}
+footer * {
+  border: solid red 1px;
+}
+.laptopContainer {
+  display: none;
 }
 @media screen and (orientation: portrait) {
   html,
@@ -219,7 +229,7 @@ footer .container {
     grid-column-start: 1;
     grid-column-end: 2;
   }
-  #btnDiv {
+  .btnDiv {
     position: fixed;
     bottom: 0;
     width: 100%;
@@ -228,7 +238,7 @@ footer .container {
     padding-top: 2vmin;
     padding-bottom: 2vmin;
   }
-  #btnDiv input {
+  .btnDiv input {
     padding: 1vmin 2vmin 1vmin 2vmin;
     width: 90%;
   }
@@ -258,5 +268,11 @@ footer .container {
     grid-column-start: 1;
     grid-column-end: 2;
     background: hsla(0, 0%, 44%, 0.9);
+  }
+  footer .container {
+    display: none;
+  }
+  .laptopContainer {
+    display: flex;
   }
 }
