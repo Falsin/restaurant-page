@@ -98,5 +98,15 @@ link.href = 'https://github.com/Falsin';
 
 
 window.addEventListener('orientationchange', () => {
-  alert(window.orientation);
+  if (window.orientation == -90 || window.orientation == 90) {
+    const labels = document.getElementById('#labels');
+    const btn = document.getElementById('#btnDiv');
+
+    const computedStyle = computedStyle(btn);
+    const btnSize = computedStyle.height; 
+
+    labels.style.bottom = `${btnSize + 2}vmin`;
+    alert(btnSize);
+
+  }
 })
