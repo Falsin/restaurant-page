@@ -16,12 +16,12 @@ body {
   font-size: 16px;
 }
 
-body > * {
+/* body > * {
   border: solid red 1px;
-}
+} */
 
 header {
-  color: white;
+  color: hsl(0, 0%, 100%);
   font-family: 'Dancing Script', serif;
   display: flex;
   justify-content: center;
@@ -42,7 +42,12 @@ header .container {
   justify-content: center;
   align-items: center;
   font-weight: 800;
-  font-size: 1.6em;
+  font-size: 1.8em;
+  text-shadow:
+    black 2px 0 5px,
+    black -2px 0 5px, 
+    black 0 2px 5px,  
+    black 0 -2px 5px; 
 }
 
 nav {
@@ -53,6 +58,11 @@ nav {
 
 header img {
   .size(auto, 100%);
+  filter: 
+    drop-shadow(1px 0 1px black)
+    drop-shadow(-1px 0 1px black)
+    drop-shadow(0 1px 1px black)
+    drop-shadow(0 -1px 1px black)
 }
 
 #slideBar {
@@ -76,8 +86,7 @@ header img {
   .size(100%, 100%);
 }
 
-#slide #labels {
-  bottom: 5vmin;
+#labels {
   position: absolute;
   transform: translateX(-50%);
   left: 50%;
@@ -163,6 +172,13 @@ footer .container {
   justify-content: center;
 }
 
+#btnDiv input {
+  font-size: 1.2em;
+  border-radius: 5px;
+  border: none;
+  outline: none;
+}
+
 #author {
   margin-top: 4vmin;
 }
@@ -181,6 +197,10 @@ footer .container {
   }
   footer {
     flex-grow: 1.5;
+    padding-bottom: 2vmin !important;
+  }
+  #labels {
+    bottom: 5vmin !important;
   }
 }
 
@@ -214,21 +234,17 @@ footer .container {
   #slide {
     .size(100%, 100%);
   }
-  #labels {
-    bottom: 10vmin;
-  }
   footer {
     grid-row-start: 3;
     grid-row-end: 4;
     grid-column-start: 1;
     grid-column-end: 2;
-    padding-bottom: 12vmin;
   }
   #btnDiv {
     position: fixed;
     bottom: 0;
     .size(100%, auto);
-    background: black;
+    background: hsl(0, 0%, 22%);
     padding-top: 2vmin;
     padding-bottom: 2vmin;
   }

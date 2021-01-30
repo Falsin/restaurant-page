@@ -96,17 +96,25 @@ const link = createELem(author, 'a');
 link.textContent = 'Made by Falsin'
 link.href = 'https://github.com/Falsin';
 
+window.addEventListener("resize", () => calcIndent());
 
-window.addEventListener('orientationchange', () => {
-  if (window.orientation == -90 || window.orientation == 90) {
-    const labels = document.getElementById('#labels');
-    const btn = document.getElementById('#btnDiv');
+window.onload = () => calcIndent();
 
-    const computedStyle = computedStyle(btn);
-    const btnSize = computedStyle.height; 
+function calcIndent() {
+  const windowHeight = document.documentElement.clientHeight;
+  const windowWidth = document.documentElement.clientWidth;
 
-    labels.style.bottom = `${btnSize + 2}vmin`;
-    alert(btnSize);
+  if(windowHeight < windowWidth) {
+    const minSize = Math.min(windowHeight, windowWidth);
+    const labels = document.getElementById('labels');
+    const btn = document.getElementById('btnDiv');
+    const footer = document.querySelector('footer');
 
+    const computedStyle = getComputedStyle(btn);
+    const btnSize = parseInt(computedStyle.height); 
+    const relativeSize = btnSize * 100 / minSize;
+
+    labels.style.bottom = `${relativeSize + 5}vmin`;
+    footer.style.paddingBottom = `${relativeSize + 5}vmin`;
   }
-})
+}
