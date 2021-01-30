@@ -95,3 +95,8 @@ const author = createELem(footerBox, 'p', 'id:author');
 const link = createELem(author, 'a');
 link.textContent = 'Made by Falsin'
 link.href = 'https://github.com/Falsin';
+
+
+window.addEventListener('orientationchange', () => {
+  alert(window.orientation);
+})
