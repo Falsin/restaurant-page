@@ -74,7 +74,7 @@ arrayLabels.forEach((item, id) => {
 
 const footer = createELem(body, 'footer');
 const footerBox = createELem(footer, 'div', 'class:container');
-const socialNetworks = createELem(footerBox, 'div', 'id:socialNetworks');
+const socialNetworks = createELem(footerBox, 'div', 'class:socialNetworks');
 
 const facebookDiv = createELem(socialNetworks, 'div');
 const facebookImg = createELem(facebookDiv, 'img', 'src:images/facebook.svg');
@@ -85,20 +85,24 @@ const twitterImg = createELem(twitterDiv, 'img', 'src:images/twitter.svg');
 const instagramDiv = createELem(socialNetworks, 'div');
 const instagramImg = createELem(instagramDiv, 'img', 'src:images/instagram.svg');
 
-const adress = createELem(footerBox, 'div', 'id:adress');
+const adress = createELem(footerBox, 'div', 'class:adress');
 adress.innerHTML = `© 2021 Good Food | <br> 1112 Parker St, Berkeley, CA 94702 | <br> (510) 024 — 377`;
 
-const btnDiv = createELem(footerBox, 'div', 'id:btnDiv');
-const orderBtn = createELem(btnDiv, 'input', 'type:button', 'id:order', 'value:order online');
+const btnDiv = createELem(footerBox, 'div', 'class:btnDiv');
+const orderBtn = createELem(btnDiv, 'input', 'type:button', 'class:order', 'value:order online');
 
 const author = createELem(footerBox, 'p', 'id:author');
 const link = createELem(author, 'a');
 link.textContent = 'Made by Falsin'
 link.href = 'https://github.com/Falsin';
 
-window.addEventListener("resize", () => calcIndent());
+window.addEventListener("resize", () => {
+  calcIndent();
+});
 
-window.onload = () => calcIndent();
+window.onload = () => {
+  calcIndent();
+};
 
 function calcIndent() {
   const windowHeight = document.documentElement.clientHeight;
@@ -118,3 +122,60 @@ function calcIndent() {
     footer.style.paddingBottom = `${relativeSize + 5}vmin`;
   }
 }
+
+function createMobileContainer() {
+  const footerBox = createELem(footer, 'div', 'class:container');
+  const socialNetworks = createELem(footerBox, 'div', 'class:socialNetworks');
+
+  const facebookDiv = createELem(socialNetworks, 'div');
+  const facebookImg = createELem(facebookDiv, 'img', 'src:images/facebook.svg');
+
+  const twitterDiv = createELem(socialNetworks, 'div');
+  const twitterImg = createELem(twitterDiv, 'img', 'src:images/twitter.svg');
+
+  const instagramDiv = createELem(socialNetworks, 'div');
+  const instagramImg = createELem(instagramDiv, 'img', 'src:images/instagram.svg');
+
+  const adress = createELem(footerBox, 'div', 'class:adress');
+  adress.innerHTML = `© 2021 Good Food | <br> 1112 Parker St, Berkeley, CA 94702 | <br> (510) 024 — 377`;
+
+  const btnDiv = createELem(footerBox, 'div', 'class:btnDiv');
+  const orderBtn = createELem(btnDiv, 'input', 'type:button', 'class:order', 'value:order online');
+
+  const author = createELem(footerBox, 'p', 'id:author');
+  const link = createELem(author, 'a');
+  link.textContent = 'Made by Falsin'
+  link.href = 'https://github.com/Falsin';
+}
+
+function createLaptopContainer() {
+  const windowHeight = document.documentElement.clientHeight;
+  const windowWidth = document.documentElement.clientWidth;
+
+  if (windowWidth > 1000) {
+    const footerBox = createELem(footer, 'div', 'class:laptopContainer');
+    const socialNetworks = createELem(footerBox, 'div', 'class:socialNetworks');
+
+    const facebookDiv = createELem(socialNetworks, 'div');
+    const facebookImg = createELem(facebookDiv, 'img', 'src:images/facebook.svg');
+
+    const twitterDiv = createELem(socialNetworks, 'div');
+    const twitterImg = createELem(twitterDiv, 'img', 'src:images/twitter.svg');
+
+    const instagramDiv = createELem(socialNetworks, 'div');
+    const instagramImg = createELem(instagramDiv, 'img', 'src:images/instagram.svg');
+
+    const adress = createELem(footerBox, 'div', 'class:adress');
+    adress.innerHTML = `© 2021 Good Food | <br> 1112 Parker St, Berkeley, CA 94702 | <br> (510) 024 — 377`;
+
+    const btnDiv = createELem(footerBox, 'div', 'class:btnDiv');
+    const orderBtn = createELem(btnDiv, 'input', 'type:button', 'class:order', 'value:order online');
+
+    const author = createELem(footerBox, 'p', 'id:author');
+    const link = createELem(author, 'a');
+    link.textContent = 'Made by Falsin'
+    link.href = 'https://github.com/Falsin';
+  }
+}
+
+createLaptopContainer();
