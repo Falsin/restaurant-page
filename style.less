@@ -16,9 +16,9 @@ body {
   font-size: 16px;
 }
 
-/* body > * {
+body > * {
   border: solid red 1px;
-} */
+}
 
 header {
   color: hsl(0, 0%, 100%);
@@ -216,10 +216,10 @@ footer .container {
   }
 }
 
-@media screen and (orientation:landscape) and (min-width: 700px) {
+@media screen and (orientation:landscape) and (min-width: 700px) and (max-width: 1000px){
   body {
     display: grid;
-    grid-template-rows: 20vh 80vh;
+    grid-template-rows: 12vh 88vh;
   }
   header {
     grid-row-start: 1;
@@ -254,6 +254,33 @@ footer .container {
   #btnDiv input {
     padding: 1vmin 2vmin 1vmin 2vmin;
     width: 90%;
+  }
+}
+
+@media screen and (orientation:landscape) and (min-width: 1000px) {
+  body {
+    display: grid;
+    grid-template-rows: 12vh auto auto;
+    .size(100%, 100vh)
+  }
+  header {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+  #slideBar {
+    grid-row-start: 1;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }  
+  footer {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
+    background: hsla(0, 0%, 44%, 0.9);
   }
 }
   
