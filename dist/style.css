@@ -186,6 +186,9 @@ footer .container {
     width: 100%;
     height: 100%;
   }
+  #labels {
+    bottom: 5vmin;
+  }
 }
 @media screen and (orientation: landscape) and (min-width: 700px) {
   body {
