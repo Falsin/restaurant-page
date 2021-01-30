@@ -104,7 +104,7 @@ function calcIndent() {
   const windowHeight = document.documentElement.clientHeight;
   const windowWidth = document.documentElement.clientWidth;
 
-  if(windowHeight < windowWidth && windowWidth >= 700) {
+  if(windowHeight < windowWidth && windowWidth >= 700 && windowWidth < 1000) {
     const minSize = Math.min(windowHeight, windowWidth);
     const labels = document.getElementById('labels');
     const btn = document.getElementById('btnDiv');
