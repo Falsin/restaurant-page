@@ -75,8 +75,20 @@ window.onload = () => calcIndent();
 
 const menu = createELem(body, 'div', 'class:menu');
 
-nav.addEventListener('mousedown', () => {
-  menu.classList.add('popUp');
-})
+nav.addEventListener('mousedown', () => menu.classList.toggle('popUp'))
 
-export {footer};
+const list = createELem(menu, 'div');
+
+function setSize() {
+  const windowHeight = document.documentElement.clientHeight;
+  const computedHeaderStyle = getComputedStyle(header);
+  const computedFooterStyle = getComputedStyle(footer);
+  const headerHeight = parseInt(computedHeaderStyle.height);
+  const footerHeight = parseInt(computedFooterStyle.height);
+
+  const currentHeight = windowHeight - headerHeight - footerHeight;
+  list.style.height = currentHeight + 'px';
+  list.style.width = 100 + '%';
+  list.style.top = headerHeight + 'px';
+}
+setSize()
