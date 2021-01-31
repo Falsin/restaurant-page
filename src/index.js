@@ -9,7 +9,6 @@ logo.textContent = 'Good Food'
 const nav = createELem(headerBox, 'nav');
 const img = createELem(nav, 'img', 'src:images/nav.svg');
 
-
 let arrayBoxes = [];
 let arrayLabels = [];
 let srcImages = [
@@ -73,5 +72,11 @@ arrayLabels.forEach((item, id) => {
 window.addEventListener("resize", () => calcIndent());
 
 window.onload = () => calcIndent();
+
+const menu = createELem(body, 'div', 'class:menu');
+
+nav.addEventListener('mousedown', () => {
+  menu.classList.add('popUp');
+})
 
 export {footer};
