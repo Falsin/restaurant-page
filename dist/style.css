@@ -283,6 +283,11 @@ footer .container {
     padding: 1vmin 2vmin 1vmin 2vmin;
     width: 90%;
   }
+  .menu {
+    width: 100vw !important;
+    height: 100vh !important;
+    top: 0 !important;
+  }
 }
 @media screen and (orientation: landscape) and (min-width: 1000px) {
   body {
@@ -318,5 +323,10 @@ footer .container {
     display: flex;
     width: 70%;
     height: 100%;
+  }
+  .menu {
+    width: 100vw !important;
+    height: 100vh !important;
+    top: 0 !important;
   }
 }
