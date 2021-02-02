@@ -12,7 +12,22 @@ const img = createELem(nav, 'img', 'src:images/nav.svg');
 nav.addEventListener('mousedown', () => menu.classList.toggle('popUp'))
 
 const menu = createELem(body, 'div', 'class:menu');
-const list = createELem(menu, 'div', 'class:list');
+const listDiv = createELem(menu, 'div', 'class:listDiv');
+
+const list = createELem(listDiv, 'ul', 'class:list');
+
+for (let i = 0; i < 3; i++) {
+  const item = createELem(list, 'li');
+  const link = createELem(item, 'a', 'href:#');
+  
+  if (i == 0) {
+    link.textContent = 'About';
+  } else if (i == 1) {
+    link.textContent = 'Menu';
+  } else {
+    link.textContent = 'Contant';
+  }
+}
 
 let arrayBoxes = [];
 let arrayLabels = [];
