@@ -250,7 +250,32 @@ footer .container {
 
 .menu div {
   position: absolute;
-  border: solid red 2px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.menu div .list {
+  font-weight: 900;
+  padding: 2vmin 4vmin 2vmin 4vmin;
+  display: inline-block;
+  text-shadow:
+    black 2px 0 5px,
+    black -2px 0 5px, 
+    black 0 2px 5px,  
+    black 0 -2px 5px; 
+}
+
+.list {
+  list-style: none;
+}
+
+.list li {
+  margin-left: auto;
+}
+
+.list a {
+  color: white;
+  text-decoration: none;
 }
 
 @media screen and (orientation:portrait) {
