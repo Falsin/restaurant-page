@@ -8,11 +8,11 @@ html {
 }
 body {
   background: black;
-  display: flex;
-  flex-direction: column;
+  display: grid;
   font-size: 16px;
   overflow-x: hidden;
   position: relative;
+  grid-template-rows: 12vh 80vmin auto;
 }
 header {
   color: hsl(0, 0%, 100%);
@@ -51,7 +51,7 @@ header img {
 }
 #slideBar {
   width: 100%;
-  height: 80vmin;
+  height: 100%;
   display: flex;
   justify-content: center;
   z-index: 1;
@@ -199,8 +199,8 @@ footer .container {
   height: 100%;
 }
 .menu {
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   background: url('images/restaurant.jpg') center center;
   background-size: cover;
   position: absolute;
@@ -209,13 +209,15 @@ footer .container {
   transition-duration: 1.5s;
   transition-timing-function: linear;
   z-index: 3;
+  display: flex;
+  align-items: center;
 }
 .menu.popUp {
   left: 0;
 }
 .menu div {
   position: absolute;
-  background: red;
+  border: solid red 2px;
 }
 @media screen and (orientation: portrait) {
   html,
@@ -223,12 +225,15 @@ footer .container {
     width: 100vw;
     height: 100vh;
   }
-  header {
-    flex-grow: 0.5;
+  .menu {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
   }
-  footer {
-    flex-grow: 1.5;
-    padding-bottom: 2vmin !important;
+  .menu div {
+    width: 100%;
+    height: 80%;
   }
 }
 @media screen and (orientation: landscape) {
@@ -240,11 +245,23 @@ footer .container {
     width: 100%;
     height: 100%;
   }
+  body {
+    grid-template-rows: 12vh 100vh auto;
+  }
+  .menu {
+    grid-row-start: 1;
+    grid-row-end: 3;
+    grid-column-start: 1;
+    grid-column-end: 2;
+  }
+  .menu div {
+    width: 100%;
+    height: 70%;
+  }
 }
 @media screen and (orientation: landscape) and (min-width: 700px) and (max-width: 1000px) {
   body {
-    display: grid;
-    grid-template-rows: 12vh 88vh;
+    grid-template-rows: 12vh 88vh auto;
   }
   header {
     grid-row-start: 1;
@@ -257,12 +274,6 @@ footer .container {
     grid-row-end: 3;
     grid-column-start: 1;
     grid-column-end: 2;
-    width: 100%;
-    height: 100%;
-  }
-  #slide {
-    width: 100%;
-    height: 100%;
   }
   footer {
     grid-row-start: 3;
@@ -283,15 +294,9 @@ footer .container {
     padding: 1vmin 2vmin 1vmin 2vmin;
     width: 90%;
   }
-  .menu {
-    width: 100vw !important;
-    height: 100vh !important;
-    top: 0 !important;
-  }
 }
 @media screen and (orientation: landscape) and (min-width: 1000px) {
   body {
-    display: grid;
     grid-template-rows: 12vh auto auto;
     width: 100%;
     height: 100vh;
@@ -325,8 +330,9 @@ footer .container {
     height: 100%;
   }
   .menu {
-    width: 100vw !important;
-    height: 100vh !important;
-    top: 0 !important;
+    grid-row-start: 1;
+    grid-row-end: 4;
+    grid-column-start: 1;
+    grid-column-end: 2;
   }
 }

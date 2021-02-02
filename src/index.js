@@ -1,17 +1,18 @@
-// изменить расчёт высоты в функции setSize
-// взяв за отправную точку высоту slide элемента
-
-
 import {createELem} from './createElem';
-import {calcIndent, setSize, body, header, slideBar, footer, menu} from './load';
+import {calcIndent, body, header, slideBar, footer} from './load';
 
-/* const headerBox = createELem(header, 'div', 'class:container');
+const headerBox = createELem(header, 'div', 'class:container');
 const logo = createELem(headerBox, 'div', 'id:logo');
 
 logo.textContent = 'Good Food'
 
 const nav = createELem(headerBox, 'nav');
-const img = createELem(nav, 'img', 'src:images/nav.svg'); */
+const img = createELem(nav, 'img', 'src:images/nav.svg');
+
+nav.addEventListener('mousedown', () => menu.classList.toggle('popUp'))
+
+const menu = createELem(body, 'div', 'class:menu');
+const list = createELem(menu, 'div', 'class:list');
 
 let arrayBoxes = [];
 let arrayLabels = [];
@@ -75,13 +76,6 @@ arrayLabels.forEach((item, id) => {
 
 window.addEventListener("resize", () => {
   calcIndent();
-  setSize();
 });
 
 window.onload = () => calcIndent();
-
-//const menu = createELem(body, 'div', 'class:menu');
-
-/* nav.addEventListener('mousedown', () => menu.classList.toggle('popUp')) */
-
-//const list = createELem(menu, 'div', 'class:list');
