@@ -11,23 +11,55 @@ const img = createELem(nav, 'img', 'src:images/nav.svg');
 
 nav.addEventListener('mousedown', () => menu.classList.toggle('popUp'))
 
-const menu = createELem(body, 'div', 'class:menu');
+const menu = createELem(body, 'div', 'class:menuDiv');
 const listDiv = createELem(menu, 'div', 'class:listDiv');
 
 const list = createELem(listDiv, 'ul', 'class:list');
 
 for (let i = 0; i < 3; i++) {
   const item = createELem(list, 'li');
-  const link = createELem(item, 'a', 'href:#');
   
   if (i == 0) {
-    link.textContent = 'About';
+    item.textContent = 'About';
   } else if (i == 1) {
-    link.textContent = 'Menu';
+    item.textContent = 'Menu';
   } else {
-    link.textContent = 'Contant';
+    item.textContent = 'Contact';
   }
 }
+
+const listItems = [...list.children];
+const tabs = [];
+
+for (let i = 0; i < 3; i++) {
+  if (i == 0) {
+    tabs.push(createELem(body, 'div', 'class:about'));
+  } else if (i == 1) {
+    tabs.push(createELem(body, 'div', 'class:menu'));
+  } else {
+    tabs.push(createELem(body, 'div', 'class:contact'));
+  }
+}
+
+listItems.forEach((item, id) => {
+  item.addEventListener('mousedown', () => {
+    tabs[id].classList.toggle('popUp');
+    createContent(id)
+  })
+})
+
+function createContent(id) {
+  const box = createELem(tabs[id], 'div', 'class:container');
+  const headline = createELem(box, 'h2');
+  if (id == 0) {
+    headline.textContent = 'about';
+  } else if (id == 1) {
+    headline.textContent = 'menu';
+  } else {
+    headline.textContent = 'contact';
+  }
+}
+
 
 let arrayBoxes = [];
 let arrayLabels = [];

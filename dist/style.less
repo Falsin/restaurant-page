@@ -30,7 +30,7 @@ header {
   align-items: center;
   padding-top: 2vmin;
   padding-bottom: 2vmin;
-  z-index: 4;
+  z-index: 5;
 }
 
 header .container {
@@ -138,7 +138,7 @@ footer {
   align-items: center;
   background: hsla(0, 0%, 44%, 0.5);
   padding-bottom: 3vmin;
-  z-index: 4;
+  z-index: 5;
 }
 
 footer .container {
@@ -230,7 +230,7 @@ footer .container {
   .size(100%, 100%);
 }
 
-.menu {
+.menuDiv {
   .size(100%, 100%);
   background: url('./images/restaurant.jpg') center center; 
   background-size: cover;
@@ -242,19 +242,20 @@ footer .container {
   z-index: 3;
   display: flex;
   align-items: center;
+  color: white;
 }
 
-.menu.popUp {
+.menuDiv.popUp {
   left: 0;
 }
 
-.menu div {
+.menuDiv div {
   position: absolute;
   display: flex;
   justify-content: flex-end;
 }
 
-.menu div .list {
+.menuDiv div .list {
   font-weight: 900;
   padding: 2vmin 4vmin 2vmin 4vmin;
   display: inline-block;
@@ -273,22 +274,42 @@ footer .container {
   margin-left: auto;
 }
 
-.list a {
-  color: white;
-  text-decoration: none;
+.about, .menu, .contact {
+  display: none;
+  position: absolute;
+  z-index: 4;
+  .size(100%, 100%);
+  grid-row-start: 2;
+  grid-row-end: 3;
+  grid-column-start: 1;
+  grid-column-end: 2;
+}
+
+.about.popUp,
+.menu.popUp,
+.contact.popUp {
+  display: flex;
+  background: white;
+}
+
+.about .container,
+.menu .container,
+.contact .container {
+  .size(100%, 100%);
+  padding: 3vmin 4vmin 3vmin 4vmin;
 }
 
 @media screen and (orientation:portrait) {
   html, body {
     .size(100vw, 100vh);
   }
-  .menu {
+  .menuDiv {
     grid-row-start: 2;
     grid-row-end: 3;
     grid-column-start: 1;
     grid-column-end: 2;
   }
-  .menu div {
+  .menuDiv div {
     .size(100%, 80%)
   }
 }
@@ -303,13 +324,13 @@ footer .container {
   body {
     grid-template-rows: 12vh 100vh auto;
   }
-  .menu {
+  .menuDiv {
     grid-row-start: 1;
     grid-row-end: 3;
     grid-column-start: 1;
     grid-column-end: 2;
   }
-  .menu div {
+  .menuDiv div {
     .size(100%, 70%)
   }
 }
@@ -382,7 +403,7 @@ footer .container {
     display: flex;
     .size(70%, 100%)
   }
-  .menu {
+  .menuDiv {
     grid-row-start: 1;
     grid-row-end: 4;
     grid-column-start: 1;
