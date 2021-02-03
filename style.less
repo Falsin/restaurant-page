@@ -275,7 +275,6 @@ footer .container {
 }
 
 .about, .menu, .contact {
-  display: none;
   position: absolute;
   z-index: 4;
   .size(100%, 100%);
@@ -283,13 +282,17 @@ footer .container {
   grid-row-end: 3;
   grid-column-start: 1;
   grid-column-end: 2;
+  transition-duration: 1.5s;
+  transform: scaleY(0);
+  transform-origin: center top;
 }
 
 .about.popUp,
 .menu.popUp,
 .contact.popUp {
   display: flex;
-  background: white;
+  background: hsla(0, 0%, 100%, 0.8);
+  transform: scaleY(1);
 }
 
 .about .container,
@@ -297,6 +300,11 @@ footer .container {
 .contact .container {
   .size(100%, 100%);
   padding: 3vmin 4vmin 3vmin 4vmin;
+}
+
+.headline > div {
+  display: flex;
+  align-items: center;
 }
 
 @media screen and (orientation:portrait) {
