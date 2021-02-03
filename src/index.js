@@ -9,7 +9,21 @@ logo.textContent = 'Good Food'
 const nav = createELem(headerBox, 'nav');
 const img = createELem(nav, 'img', 'src:images/nav.svg');
 
-nav.addEventListener('mousedown', () => menu.classList.toggle('popUp'))
+nav.addEventListener('mousedown', () => {
+  let readonly = false;
+  for (const item of tabs) {
+    if (item.classList.contains('popUp')) {
+      readonly = true;
+      break;
+    } else {
+      readonly = false;
+    }
+  }
+  
+  if (!readonly) {
+    menu.classList.toggle('popUp');
+  }
+})
 
 const menu = createELem(body, 'div', 'class:menuDiv');
 const listDiv = createELem(menu, 'div', 'class:listDiv');
@@ -44,22 +58,32 @@ for (let i = 0; i < 3; i++) {
 listItems.forEach((item, id) => {
   item.addEventListener('mousedown', () => {
     tabs[id].classList.toggle('popUp');
-    createContent(id)
   })
 })
 
+tabs.forEach((item, id) => createContent(id))
+
 function createContent(id) {
   const box = createELem(tabs[id], 'div', 'class:container');
-  const headline = createELem(box, 'h2');
-  if (id == 0) {
-    headline.textContent = 'about';
-  } else if (id == 1) {
-    headline.textContent = 'menu';
-  } else {
-    headline.textContent = 'contact';
-  }
-}
+  const headline = createELem(box, 'div', 'class:headline');
+  const comeBack = createELem(headline, 'div');
+  const img = createELem(comeBack, 'img', 'src:images/arrowLeft.svg');
+  const text = createELem(comeBack, 'h2');
 
+  const content = createELem(box, 'div');
+  
+  if (id == 0) {
+    text.textContent = 'about';
+    const p = createELem(content, 'p');
+    p.textContent = 'Experience the cuisine that has created raving fans of local diners and national and local food critics alike.'
+  } else if (id == 1) {
+    text.textContent = 'menu';
+  } else {
+    text.textContent = 'contact';
+  }
+
+  comeBack.onclick = () => tabs[id].classList.toggle('popUp');
+}
 
 let arrayBoxes = [];
 let arrayLabels = [];
