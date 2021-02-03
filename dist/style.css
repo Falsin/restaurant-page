@@ -232,6 +232,7 @@ footer .container {
 }
 .list li {
   margin-left: auto;
+  cursor: pointer;
 }
 .about,
 .menu,
@@ -262,9 +263,39 @@ footer .container {
   height: 100%;
   padding: 3vmin 4vmin 3vmin 4vmin;
 }
+.menu .container {
+  display: flex;
+  flex-direction: column;
+}
 .headline > div {
   display: flex;
   align-items: center;
+  cursor: pointer;
+}
+.menu .content {
+  width: 100%;
+  height: auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+  -webkit-overflow-scrolling: touch;
+}
+.menu .content::-webkit-scrollbar {
+  width: 0;
+}
+.foodCard {
+  width: 70vmin;
+  height: 40vmin;
+  margin-top: 5vmin;
+  background-size: cover;
+  background-position: center center;
+}
+.fakeCard {
+  width: 70vmin;
+  height: 0;
 }
 @media screen and (orientation: portrait) {
   html,

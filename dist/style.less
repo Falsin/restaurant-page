@@ -272,6 +272,7 @@ footer .container {
 
 .list li {
   margin-left: auto;
+  cursor: pointer;
 }
 
 .about, .menu, .contact {
@@ -302,9 +303,39 @@ footer .container {
   padding: 3vmin 4vmin 3vmin 4vmin;
 }
 
+.menu .container {
+  display: flex;
+  flex-direction: column;
+}
+
 .headline > div {
   display: flex;
   align-items: center;
+  cursor: pointer;
+}
+
+.menu .content {
+  .size(100%, auto);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  overflow-y: scroll;
+  scrollbar-width: none;
+  -ms-overflow-style: none;  	
+  -webkit-overflow-scrolling: touch;
+}
+
+.menu .content::-webkit-scrollbar { width: 0; }
+
+.foodCard {
+  .size(70vmin, 40vmin);
+  margin-top: 5vmin;
+  background-size: cover;
+  background-position: center center;
+}
+
+.fakeCard {
+  .size(70vmin, 0);
 }
 
 @media screen and (orientation:portrait) {

@@ -61,6 +61,19 @@ listItems.forEach((item, id) => {
   })
 })
 
+let foodMenu = {
+  'Jumbo U8 Scallop': 'images/menu/firstFood.jpg',
+  'Lobster Dumplings': 'images/menu/secondFood.jpg',
+  'Barbecue Shrimp': 'images/menu/thirdFood.jpg',
+  'Red Snapper Ceviche': 'images/menu/fourthFood.jpg',
+  'Firecracker Tuna Tacos': 'images/menu/fifthFood.jpg',
+  'King Cake': 'images/menu/sixthFood.jpeg',
+  'Cake Walk Trio': 'images/menu/seventhFood.jpg',
+  'Ahi Poke Bowls': 'images/menu/eighthFood.jpg',
+  'Surf & Turf': 'images/menu/ninethFood.jpg',
+  'Firecracker Rice': 'images/menu/tenthFood.jpg'
+}
+
 tabs.forEach((item, id) => createContent(id))
 
 function createContent(id) {
@@ -70,7 +83,7 @@ function createContent(id) {
   const img = createELem(comeBack, 'img', 'src:images/arrowLeft.svg');
   const text = createELem(comeBack, 'h2');
 
-  const content = createELem(box, 'div');
+  const content = createELem(box, 'div', 'class:content');
   
   if (id == 0) {
     text.textContent = 'about';
@@ -78,11 +91,34 @@ function createContent(id) {
     p.textContent = 'Experience the cuisine that has created raving fans of local diners and national and local food critics alike.'
   } else if (id == 1) {
     text.textContent = 'menu';
+    foodCards(content)
   } else {
     text.textContent = 'contact';
+
+    const div = createELem(content, 'div');
+    const phoneBlock = createELem(div, 'div', 'class:phoneNumbers');
   }
 
   comeBack.onclick = () => tabs[id].classList.toggle('popUp');
+}
+
+function foodCards(parentElem) {
+  const foodArray = parentElem.children;
+
+  for (let i = 0; i < 10; i++) {[i];
+    createELem(parentElem, 'div', 'class:foodCard');
+  }
+
+  for (let i = 0; i < 12; i++) {
+    createELem(parentElem, 'div', 'class:fakeCard');
+  }
+
+  let i = 0;
+  for (const key in foodMenu) {
+    console.log(foodMenu[key])
+    foodArray[i].style.backgroundImage = `url(${foodMenu[key]})`;
+    i++;
+  }
 }
 
 let arrayBoxes = [];
