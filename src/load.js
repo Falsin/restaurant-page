@@ -33,20 +33,7 @@ function createMobileContainer() {
   const footerBox = createELem(footer, 'div', 'class:container');
   const socialNetworks = createELem(footerBox, 'div', 'class:socialNetworks');
 
-  const facebookDiv = createELem(socialNetworks, 'div');
-  const facebookLink = createELem(facebookDiv, 'a');
-  facebookLink.href = 'https://www.facebook.com/'
-  const facebookImg = createELem(facebookLink, 'img', 'src:images/facebook.svg');
-
-  const twitterDiv = createELem(socialNetworks, 'div');
-  const twitterLink = createELem(twitterDiv, 'a');
-  twitterLink.href = 'https://twitter.com/'
-  const twitterImg = createELem(twitterLink, 'img', 'src:images/twitter.svg');
-
-  const instagramDiv = createELem(socialNetworks, 'div');
-  const instagramLink = createELem(instagramDiv, 'a');
-  instagramLink.href = 'https://www.instagram.com/'
-  const instagramImg = createELem(instagramLink, 'img', 'src:images/instagram.svg');
+  createSocialNetworks(socialNetworks);
 
   const adress = createELem(footerBox, 'div', 'class:adress');
   adress.innerHTML = `© 2021 Good Food | <br> 1112 Parker St, Berkeley, CA 94702 | <br> (510) 024 — 377`;
@@ -56,8 +43,7 @@ function createMobileContainer() {
   const orderBtn = createELem(btnDiv, 'input', 'type:button', 'class:order', 'value:order online');
 
   const author = createELem(footerBox, 'p', 'class:author');
-  const link = createELem(author, 'a');
-  link.textContent = 'Made by Falsin'
+  const link = createELem(author, 'a', 'Made by Falsin');
   link.href = 'https://github.com/Falsin';
 }
 
@@ -73,25 +59,26 @@ function createLaptopContainer() {
 
   const socialNetworks = createELem(box, 'div', 'class:socialNetworks');
 
-  const facebookDiv = createELem(socialNetworks, 'div');
-  const facebookLink = createELem(facebookDiv, 'a');
-  facebookLink.href = 'https://www.facebook.com/'
-  const facebookImg = createELem(facebookLink, 'img', 'src:images/facebook.svg');
-
-  const twitterDiv = createELem(socialNetworks, 'div');
-  const twitterLink = createELem(twitterDiv, 'a');
-  twitterLink.href = 'https://twitter.com/'
-  const twitterImg = createELem(twitterLink, 'img', 'src:images/twitter.svg');
-
-  const instagramDiv = createELem(socialNetworks, 'div');
-  const instagramLink = createELem(instagramDiv, 'a');
-  instagramLink.href = 'https://www.instagram.com/'
-  const instagramImg = createELem(instagramLink, 'img', 'src:images/instagram.svg');
+  createSocialNetworks(socialNetworks);
 
   const author = createELem(footerBox, 'p', 'class:author');
-  const link = createELem(author, 'a');
-  link.textContent = 'Made by Falsin'
+  const link = createELem(author, 'a', 'Made by Falsin');
   link.href = 'https://github.com/Falsin';
+}
+
+function createSocialNetworks(parentElem) {
+  let networksObj = {
+    'facebook': 'https://www.facebook.com/',
+    'twitter': 'https://twitter.com/',
+    'instagram': 'https://www.instagram.com/'
+  }
+
+  for (const key in networksObj) {
+    const elem = createELem(parentElem, 'div');
+    const elemLink = createELem(elem, 'a');
+    elemLink.href = networksObj[key];
+    const elemImg = createELem(elemLink, 'img', `src:images/${key}.svg`);
+  }
 }
 
 createMobileContainer();

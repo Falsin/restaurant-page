@@ -1,10 +1,8 @@
-import {createELem} from './createElem';
-import {calcIndent, body, header, slideBar, footer} from './load';
+import {createELem, createBlock} from './createElem';
+import {calcIndent, body, header, slideBar} from './load';
 
 const headerBox = createELem(header, 'div', 'class:container');
-const logo = createELem(headerBox, 'div', 'id:logo');
-
-logo.textContent = 'Good Food'
+const logo = createELem(headerBox, 'div', 'id:logo', 'Good Food');
 
 const nav = createELem(headerBox, 'nav');
 const img = createELem(nav, 'img', 'src:images/nav.svg');
@@ -25,13 +23,19 @@ nav.addEventListener('mousedown', () => {
   }
 })
 
+
 const menu = createELem(body, 'div', 'class:menuDiv');
 const listDiv = createELem(menu, 'div', 'class:listDiv');
-
 const list = createELem(listDiv, 'ul', 'class:list');
+
+const tabs = [];
 
 for (let i = 0; i < 3; i++) {
   const item = createELem(list, 'li');
+  item.addEventListener('mousedown', () => {
+    tabs[i].classList.toggle('popUp');
+    item.classList.toggle('active');
+  })
   
   if (i == 0) {
     item.textContent = 'About';
@@ -43,7 +47,6 @@ for (let i = 0; i < 3; i++) {
 }
 
 const listItems = [...list.children];
-const tabs = [];
 
 for (let i = 0; i < 3; i++) {
   if (i == 0) {
@@ -54,13 +57,6 @@ for (let i = 0; i < 3; i++) {
     tabs.push(createELem(body, 'div', 'class:contact'));
   }
 }
-
-listItems.forEach((item, id) => {
-  item.addEventListener('mousedown', () => {
-    tabs[id].classList.toggle('popUp');
-    item.classList.toggle('active');
-  })
-})
 
 let foodMenu = {
   'Jumbo U8 Scallop': {
@@ -127,25 +123,19 @@ function createContent(id) {
     text.textContent = 'Contact';
 
     const div = createELem(content, 'div');
+    const phoneBlock = createBlock(div, 'phoneNumbers', 'Phone numbers')
 
-    const phoneBlock = createELem(div, 'div', 'class:phoneNumbers');
-    const phoneTitle = createELem(phoneBlock, 'h3', 'class:phoneNumbers');
-    phoneTitle.textContent = 'Phone numbers';
     const phoneList = createELem(phoneBlock, 'div', 'class:phoneList');
     const firstNumber = createELem(phoneList, 'div');
     createELem(firstNumber, 'img', 'src:images/phone.svg');
-    const firstParagraph = createELem(firstNumber, 'p');
-    firstParagraph.textContent = '473-281-516';
+    createELem(firstNumber, 'p',  '473-281-516')
+
     const secondNumber = createELem(phoneList, 'div');
     createELem(secondNumber, 'img', 'src:images/phone.svg');
-    const secondParagraph = createELem(secondNumber, 'p');
-    secondParagraph.textContent = '812-121-792';
+    createELem(secondNumber, 'p', '812-121-792')
 
-    const adressBlock = createELem(div, 'div', 'class:adressBlock');
-    const adressTitle = createELem(adressBlock, 'h3');
-    adressTitle.textContent = 'Adress';
-    const adressParagraph = createELem(adressBlock, 'p');
-    adressParagraph.textContent = '1112 Parker St, Berkeley, CA 94702'
+    const adressBlock = createBlock(div, 'adressBlock', 'Adress')
+    createELem(adressBlock, 'p', '1112 Parker St, Berkeley, CA 94702')
   }
 
   comeBack.onclick = () => {
@@ -159,11 +149,8 @@ function foodCards(parentElem) {
     const elem = createELem(parentElem, 'div', 'class:foodCard');
     elem.style.backgroundImage = `url(${foodMenu[key].src})`;
     const priceBoard = createELem(elem, 'div', 'class:priceBoard');
-    const title = createELem(priceBoard, 'p', 'class:title');
-    title.textContent = `${key}`;
-
-    const price = createELem(priceBoard, 'p', 'class:price');
-    price.textContent = `${foodMenu[key].price}`;
+    createELem(priceBoard, 'p', 'class:title', `${key}`);
+    createELem(priceBoard, 'p', 'class:price', `${foodMenu[key].price}`);
   }
 
   for (let i = 0; i < 12; i++) {
