@@ -25,6 +25,7 @@ function calcIndent() {
     labels.style.bottom = `${relativeSize + 5}vmin`;
   } else {
     labels.style.bottom = `5vmin`;
+    footer.style.paddingBottom = ``;
   }
 }
 
@@ -33,13 +34,19 @@ function createMobileContainer() {
   const socialNetworks = createELem(footerBox, 'div', 'class:socialNetworks');
 
   const facebookDiv = createELem(socialNetworks, 'div');
-  const facebookImg = createELem(facebookDiv, 'img', 'src:images/facebook.svg');
+  const facebookLink = createELem(facebookDiv, 'a');
+  facebookLink.href = 'https://www.facebook.com/'
+  const facebookImg = createELem(facebookLink, 'img', 'src:images/facebook.svg');
 
   const twitterDiv = createELem(socialNetworks, 'div');
-  const twitterImg = createELem(twitterDiv, 'img', 'src:images/twitter.svg');
+  const twitterLink = createELem(twitterDiv, 'a');
+  twitterLink.href = 'https://twitter.com/'
+  const twitterImg = createELem(twitterLink, 'img', 'src:images/twitter.svg');
 
   const instagramDiv = createELem(socialNetworks, 'div');
-  const instagramImg = createELem(instagramDiv, 'img', 'src:images/instagram.svg');
+  const instagramLink = createELem(instagramDiv, 'a');
+  instagramLink.href = 'https://www.instagram.com/'
+  const instagramImg = createELem(instagramLink, 'img', 'src:images/instagram.svg');
 
   const adress = createELem(footerBox, 'div', 'class:adress');
   adress.innerHTML = `© 2021 Good Food | <br> 1112 Parker St, Berkeley, CA 94702 | <br> (510) 024 — 377`;
@@ -67,13 +74,19 @@ function createLaptopContainer() {
   const socialNetworks = createELem(box, 'div', 'class:socialNetworks');
 
   const facebookDiv = createELem(socialNetworks, 'div');
-  const facebookImg = createELem(facebookDiv, 'img', 'src:images/facebook.svg');
+  const facebookLink = createELem(facebookDiv, 'a');
+  facebookLink.href = 'https://www.facebook.com/'
+  const facebookImg = createELem(facebookLink, 'img', 'src:images/facebook.svg');
 
   const twitterDiv = createELem(socialNetworks, 'div');
-  const twitterImg = createELem(twitterDiv, 'img', 'src:images/twitter.svg');
+  const twitterLink = createELem(twitterDiv, 'a');
+  twitterLink.href = 'https://twitter.com/'
+  const twitterImg = createELem(twitterLink, 'img', 'src:images/twitter.svg');
 
   const instagramDiv = createELem(socialNetworks, 'div');
-  const instagramImg = createELem(instagramDiv, 'img', 'src:images/instagram.svg');
+  const instagramLink = createELem(instagramDiv, 'a');
+  instagramLink.href = 'https://www.instagram.com/'
+  const instagramImg = createELem(instagramLink, 'img', 'src:images/instagram.svg');
 
   const author = createELem(footerBox, 'p', 'class:author');
   const link = createELem(author, 'a');

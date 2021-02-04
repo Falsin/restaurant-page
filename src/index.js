@@ -58,20 +58,51 @@ for (let i = 0; i < 3; i++) {
 listItems.forEach((item, id) => {
   item.addEventListener('mousedown', () => {
     tabs[id].classList.toggle('popUp');
+    item.classList.toggle('active');
   })
 })
 
 let foodMenu = {
-  'Jumbo U8 Scallop': 'images/menu/firstFood.jpg',
-  'Lobster Dumplings': 'images/menu/secondFood.jpg',
-  'Barbecue Shrimp': 'images/menu/thirdFood.jpg',
-  'Red Snapper Ceviche': 'images/menu/fourthFood.jpg',
-  'Firecracker Tuna Tacos': 'images/menu/fifthFood.jpg',
-  'King Cake': 'images/menu/sixthFood.jpeg',
-  'Cake Walk Trio': 'images/menu/seventhFood.jpg',
-  'Ahi Poke Bowls': 'images/menu/eighthFood.jpg',
-  'Surf & Turf': 'images/menu/ninethFood.jpg',
-  'Firecracker Rice': 'images/menu/tenthFood.jpg'
+  'Jumbo U8 Scallop': {
+    src: 'images/menu/firstFood.jpg',
+    price: '10$'
+  },
+  'Lobster Dumplings': {
+    src: 'images/menu/secondFood.jpg',
+    price: '5$'
+  },
+  'Barbecue Shrimp': {
+    src: 'images/menu/thirdFood.jpg',
+    price: '20$'
+  },
+  'Red Snapper Cevich': {
+    src: 'images/menu/fourthFood.jpg',
+    price: '8$'
+  },
+  'Firecracker Tuna Tacos': {
+    src: 'images/menu/fifthFood.jpg',
+    price: '25$'
+  },
+  'King Cake': {
+    src: 'images/menu/sixthFood.jpeg',
+    price: '12$'
+  },
+  'Cake Walk Trio': {
+    src: 'images/menu/seventhFood.jpg',
+    price: '30$'
+  },
+  'Ahi Poke Bowls': {
+    src: 'images/menu/eighthFood.jpg',
+    price: '14$'
+  },
+  'Surf & Turf': {
+    src: 'images/menu/ninethFood.jpg',
+    price: '35$'
+  },
+  'Firecracker Rice': {
+    src: 'images/menu/tenthFood.jpg',
+    price: '16$'
+  }
 }
 
 tabs.forEach((item, id) => createContent(id))
@@ -86,38 +117,57 @@ function createContent(id) {
   const content = createELem(box, 'div', 'class:content');
   
   if (id == 0) {
-    text.textContent = 'about';
+    text.textContent = 'About';
     const p = createELem(content, 'p');
     p.textContent = 'Experience the cuisine that has created raving fans of local diners and national and local food critics alike.'
   } else if (id == 1) {
-    text.textContent = 'menu';
+    text.textContent = 'Menu';
     foodCards(content)
   } else {
-    text.textContent = 'contact';
+    text.textContent = 'Contact';
 
     const div = createELem(content, 'div');
+
     const phoneBlock = createELem(div, 'div', 'class:phoneNumbers');
+    const phoneTitle = createELem(phoneBlock, 'h3', 'class:phoneNumbers');
+    phoneTitle.textContent = 'Phone numbers';
+    const phoneList = createELem(phoneBlock, 'div', 'class:phoneList');
+    const firstNumber = createELem(phoneList, 'div');
+    createELem(firstNumber, 'img', 'src:images/phone.svg');
+    const firstParagraph = createELem(firstNumber, 'p');
+    firstParagraph.textContent = '473-281-516';
+    const secondNumber = createELem(phoneList, 'div');
+    createELem(secondNumber, 'img', 'src:images/phone.svg');
+    const secondParagraph = createELem(secondNumber, 'p');
+    secondParagraph.textContent = '812-121-792';
+
+    const adressBlock = createELem(div, 'div', 'class:adressBlock');
+    const adressTitle = createELem(adressBlock, 'h3');
+    adressTitle.textContent = 'Adress';
+    const adressParagraph = createELem(adressBlock, 'p');
+    adressParagraph.textContent = '1112 Parker St, Berkeley, CA 94702'
   }
 
-  comeBack.onclick = () => tabs[id].classList.toggle('popUp');
+  comeBack.onclick = () => {
+    tabs[id].classList.toggle('popUp');
+    listItems[id].classList.toggle('active');
+  }
 }
 
 function foodCards(parentElem) {
-  const foodArray = parentElem.children;
+  for (const key in foodMenu) {
+    const elem = createELem(parentElem, 'div', 'class:foodCard');
+    elem.style.backgroundImage = `url(${foodMenu[key].src})`;
+    const priceBoard = createELem(elem, 'div', 'class:priceBoard');
+    const title = createELem(priceBoard, 'p', 'class:title');
+    title.textContent = `${key}`;
 
-  for (let i = 0; i < 10; i++) {[i];
-    createELem(parentElem, 'div', 'class:foodCard');
+    const price = createELem(priceBoard, 'p', 'class:price');
+    price.textContent = `${foodMenu[key].price}`;
   }
 
   for (let i = 0; i < 12; i++) {
     createELem(parentElem, 'div', 'class:fakeCard');
-  }
-
-  let i = 0;
-  for (const key in foodMenu) {
-    console.log(foodMenu[key])
-    foodArray[i].style.backgroundImage = `url(${foodMenu[key]})`;
-    i++;
   }
 }
 

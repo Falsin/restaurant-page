@@ -16,7 +16,7 @@ html {
 body {
   background: black;
   display: grid;
-  font-size: 16px;
+  font-size: 18px;
   overflow-x: hidden;
   position: relative;
   grid-template-rows: 12vh 80vmin auto;
@@ -164,6 +164,7 @@ footer .container {
 
 .container .socialNetworks div img {
   .size(100%, 100%);
+  cursor: pointer;
 }
 
 .adress {
@@ -228,6 +229,7 @@ footer .container {
 
 .laptopContainer .socialNetworks div img {
   .size(100%, 100%);
+  cursor: pointer;
 }
 
 .menuDiv {
@@ -257,7 +259,7 @@ footer .container {
 
 .menuDiv div .list {
   font-weight: 900;
-  padding: 2vmin 4vmin 2vmin 4vmin;
+  padding: 2vmin 10vmin 2vmin 4vmin;
   display: inline-block;
   text-shadow:
     black 2px 0 5px,
@@ -273,6 +275,23 @@ footer .container {
 .list li {
   margin-left: auto;
   cursor: pointer;
+  font-size: 1.2em;
+}
+
+.list li:hover {
+  text-shadow:
+    yellow 0.5px 0 2px,
+    yellow -0.5px 0 2px, 
+    yellow 0 0.5px 2px,  
+    yellow 0 -0.5px 2px; 
+}
+
+.list li.active {
+  text-shadow:
+  yellow 0.5px 0 2px,
+  yellow -0.5px 0 2px, 
+  yellow 0 0.5px 2px,  
+  yellow 0 -0.5px 2px; 
 }
 
 .about, .menu, .contact {
@@ -332,10 +351,55 @@ footer .container {
   margin-top: 5vmin;
   background-size: cover;
   background-position: center center;
+  cursor: pointer;
+  display: flex;
+  align-items: flex-end;
+  border-radius: 10px;
 }
 
 .fakeCard {
   .size(70vmin, 0);
+}
+
+.priceBoard {
+  .size(100%, 0);
+  background: hsla(0, 0%, 21%, 0.767);
+  font-size: 0;
+  color: white;
+  transition-duration: 0.3s;
+  transition-timing-function: linear;
+  transition-property: height;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+}
+
+.foodCard:hover .priceBoard{
+  height: 50%;
+  font-size: 1.2em;
+}
+
+.phoneList > div {
+  display: flex;
+  height: 8vmin;
+  justify-content: center;
+}
+
+.phoneList > div p {
+  margin-left: 3vmin;
+  display: flex;
+  align-items: center;
+}
+
+.content > div {
+  text-align: center;
+  font-size: 1.2em;
+}
+
+.adressBlock h3 {
+  margin-top: 3vmin;
 }
 
 @media screen and (orientation:portrait) {
@@ -447,5 +511,8 @@ footer .container {
     grid-row-end: 4;
     grid-column-start: 1;
     grid-column-end: 2;
+  }
+  .phoneList > div {
+    height: 4vmin;
   }
 }
