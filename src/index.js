@@ -1,178 +1,6 @@
-import {createELem, createBlock} from './createElem';
-import {calcIndent, body, header, slideBar} from './load';
-
-const headerBox = createELem(header, 'div', 'class:container');
-const logo = createELem(headerBox, 'div', 'id:logo', 'Good Food');
-
-const nav = createELem(headerBox, 'nav');
-const img = createELem(nav, 'img', 'src:images/nav.svg');
-
-logo.addEventListener('mousedown', () => {
-  tabs.forEach(item => {
-    item.classList.remove('popUp');
-  })
-  list.childNodes.forEach(item => item.classList.remove('active'));
-  menu.classList.remove('popUp');
-})
-
-nav.addEventListener('mousedown', () => {
-  let readonly = false;
-  for (const item of tabs) {
-    if (item.classList.contains('popUp')) {
-      readonly = true;
-      break;
-    } else {
-      readonly = false;
-    }
-  }
-  
-  if (!readonly) {
-    menu.classList.toggle('popUp');
-  }
-})
-
-const menu = createELem(body, 'div', 'class:menuDiv');
-const listDiv = createELem(menu, 'div', 'class:listDiv');
-const list = createELem(listDiv, 'ul', 'class:list');
-
-const tabs = [];
-
-for (let i = 0; i < 3; i++) {
-  const item = createELem(list, 'li');
-  item.addEventListener('mousedown', () => {
-    tabs[i].classList.toggle('popUp');
-    item.classList.toggle('active');
-  })
-  
-  if (i == 0) {
-    item.textContent = 'About';
-  } else if (i == 1) {
-    item.textContent = 'Menu';
-  } else {
-    item.textContent = 'Contact';
-  }
-}
-
-const listItems = [...list.children];
-
-for (let i = 0; i < 3; i++) {
-  if (i == 0) {
-    tabs.push(createELem(body, 'div', 'class:about'));
-  } else if (i == 1) {
-    tabs.push(createELem(body, 'div', 'class:menu'));
-  } else {
-    tabs.push(createELem(body, 'div', 'class:contact'));
-  }
-}
-
-let foodMenu = {
-  'Jumbo U8 Scallop': {
-    src: 'images/menu/firstFood.jpg',
-    price: '10$'
-  },
-  'Lobster Dumplings': {
-    src: 'images/menu/secondFood.jpg',
-    price: '5$'
-  },
-  'Barbecue Shrimp': {
-    src: 'images/menu/thirdFood.jpg',
-    price: '20$'
-  },
-  'Red Snapper Cevich': {
-    src: 'images/menu/fourthFood.jpg',
-    price: '8$'
-  },
-  'Firecracker Tuna Tacos': {
-    src: 'images/menu/fifthFood.jpg',
-    price: '25$'
-  },
-  'King Cake': {
-    src: 'images/menu/sixthFood.jpeg',
-    price: '12$'
-  },
-  'Cake Walk Trio': {
-    src: 'images/menu/seventhFood.jpg',
-    price: '30$'
-  },
-  'Ahi Poke Bowls': {
-    src: 'images/menu/eighthFood.jpg',
-    price: '14$'
-  },
-  'Surf & Turf': {
-    src: 'images/menu/ninethFood.jpg',
-    price: '35$'
-  },
-  'Firecracker Rice': {
-    src: 'images/menu/tenthFood.jpg',
-    price: '16$'
-  }
-}
-
-tabs.forEach((item, id) => createContent(id));
-
-function createContent(id) {
-  const box = createELem(tabs[id], 'div', 'class:container');
-  const headline = createELem(box, 'div', 'class:headline');
-  const comeBack = createELem(headline, 'div');
-  const img = createELem(comeBack, 'img', 'src:images/arrowLeft.svg');
-  const text = createELem(comeBack, 'h2');
-
-  const content = createELem(box, 'div', 'class:content');
-  
-  if (id == 0) {
-    text.textContent = 'About';
-    const p = createELem(content, 'p');
-    p.textContent = 'Experience the cuisine that has created raving fans of local diners and national and local food critics alike.'
-  } else if (id == 1) {
-    text.textContent = 'Menu';
-    foodCards(content)
-  } else {
-    text.textContent = 'Contact';
-
-    const div = createELem(content, 'div');
-    const phoneBlock = createBlock(div, 'phoneNumbers', 'Phone numbers')
-
-    const phoneList = createELem(phoneBlock, 'div', 'class:phoneList');
-    const firstNumber = createELem(phoneList, 'div');
-    createELem(firstNumber, 'img', 'src:images/phone.svg');
-    createELem(firstNumber, 'p',  '473-281-516')
-
-    const secondNumber = createELem(phoneList, 'div');
-    createELem(secondNumber, 'img', 'src:images/phone.svg');
-    createELem(secondNumber, 'p', '812-121-792')
-
-    const adressBlock = createBlock(div, 'adressBlock', 'Adress')
-    createELem(adressBlock, 'p', '1112 Parker St, Berkeley, CA 94702')
-  }
-
-  comeBack.onclick = () => {
-    tabs[id].classList.toggle('popUp');
-    listItems[id].classList.toggle('active');
-  }
-}
-
-function foodCards(parentElem) { 
-  const foodCardsArray = [];
-  for (const key in foodMenu) {
-    const elem = createELem(parentElem, 'div', 'class:foodCard');
-    foodCardsArray.push(elem);
-    elem.style.backgroundImage = `url(${foodMenu[key].src})`;
-    const priceBoard = createELem(elem, 'div', 'class:priceBoard');
-    createELem(priceBoard, 'p', 'class:title', `${key}`);
-    createELem(priceBoard, 'p', 'class:price', `${foodMenu[key].price}`);
-  }
-
-  for (let i = 0; i < 12; i++) {
-    createELem(parentElem, 'div', 'class:fakeCard');
-  }
-
-  foodCardsArray.forEach(item => {
-    item.addEventListener('touchstart', () => {
-      foodCardsArray.forEach(item => item.classList.remove('popUp'));
-      item.classList.add('popUp');
-    })
-  })
-}
+import {createELem} from './modules/createElem'
+import {slideBar, footer} from './modules/load'
+import './modules/menuBlock'
 
 let arrayBoxes = [];
 let arrayLabels = [];
@@ -239,3 +67,82 @@ window.addEventListener("resize", () => {
 });
 
 window.onload = () => calcIndent();
+
+function calcIndent() {
+  const windowHeight = document.documentElement.clientHeight;
+  const windowWidth = document.documentElement.clientWidth;
+
+  if(windowHeight < windowWidth && windowWidth >= 700 && windowWidth < 1000) {
+    const minSize = Math.min(windowHeight, windowWidth);
+
+    const btnSize = document.querySelector('.btnDiv').clientHeight;
+    const relativeSize = btnSize * 100 / minSize;
+
+    labels.style.bottom = `${relativeSize + 5}vmin`;
+    footer.style.paddingBottom = `${relativeSize + 5}vmin`;
+  } else if (windowHeight < windowWidth && windowWidth > 1000) {
+    const minSize = Math.min(windowHeight, windowWidth);
+
+    const footerSize = footer.clientHeight;
+    const relativeSize = footerSize * 100 / minSize;
+    labels.style.bottom = `${relativeSize + 5}vmin`;
+  } else {
+    labels.style.bottom = `5vmin`;
+    footer.style.paddingBottom = ``;
+  }
+}
+
+function createMobileContainer() {
+  const footerBox = createELem(footer, 'div', 'class:container');
+  const socialNetworks = createELem(footerBox, 'div', 'class:socialNetworks');
+
+  createSocialNetworks(socialNetworks);
+
+  const adress = createELem(footerBox, 'div', 'class:adress');
+  adress.innerHTML = `© 2021 Good Food | <br> 1112 Parker St, Berkeley, CA 94702 | <br> (510) 024 — 377`;
+
+  const btnDiv = createELem(footerBox, 'div', 'class:btnDiv');
+
+  const orderBtn = createELem(btnDiv, 'input', 'type:button', 'class:order', 'value:order online');
+
+  const author = createELem(footerBox, 'p', 'class:author');
+  const link = createELem(author, 'a', 'Made by Falsin');
+  link.href = 'https://github.com/Falsin';
+}
+
+function createLaptopContainer() {
+  const windowHeight = document.documentElement.clientHeight;
+  const windowWidth = document.documentElement.clientWidth;
+
+  const footerBox = createELem(footer, 'div', 'class:laptopContainer');
+  const box = createELem(footerBox, 'div');
+
+  const adress = createELem(box, 'div', 'class:adress');
+  adress.innerHTML = `© 2021 Good Food | 1112 Parker St, Berkeley, CA 94702 | (510) 024 — 377`;
+
+  const socialNetworks = createELem(box, 'div', 'class:socialNetworks');
+
+  createSocialNetworks(socialNetworks);
+
+  const author = createELem(footerBox, 'p', 'class:author');
+  const link = createELem(author, 'a', 'Made by Falsin');
+  link.href = 'https://github.com/Falsin';
+}
+
+function createSocialNetworks(parentElem) {
+  let networksObj = {
+    'facebook': 'https://www.facebook.com/',
+    'twitter': 'https://twitter.com/',
+    'instagram': 'https://www.instagram.com/'
+  }
+
+  for (const key in networksObj) {
+    const elem = createELem(parentElem, 'div');
+    const elemLink = createELem(elem, 'a');
+    elemLink.href = networksObj[key];
+    const elemImg = createELem(elemLink, 'img', `src:images/${key}.svg`);
+  }
+}
+
+createMobileContainer();
+createLaptopContainer();
