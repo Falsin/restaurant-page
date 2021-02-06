@@ -7,6 +7,16 @@ const logo = createELem(headerBox, 'div', 'id:logo', 'Good Food');
 const nav = createELem(headerBox, 'nav');
 const img = createELem(nav, 'img', 'src:images/nav.svg');
 
+logo.addEventListener('mousedown', () => {
+  tabs.forEach(item => {
+    item.classList.remove('popUp');
+  })
+  list.childNodes.forEach(item => item.classList.remove('active'));
+  setTimeout(() => {
+    menu.classList.remove('popUp');
+  }, 1500);
+})
+
 nav.addEventListener('mousedown', () => {
   let readonly = false;
   for (const item of tabs) {
@@ -22,7 +32,6 @@ nav.addEventListener('mousedown', () => {
     menu.classList.toggle('popUp');
   }
 })
-
 
 const menu = createELem(body, 'div', 'class:menuDiv');
 const listDiv = createELem(menu, 'div', 'class:listDiv');
@@ -151,6 +160,8 @@ function foodCards(parentElem) {
     const priceBoard = createELem(elem, 'div', 'class:priceBoard');
     createELem(priceBoard, 'p', 'class:title', `${key}`);
     createELem(priceBoard, 'p', 'class:price', `${foodMenu[key].price}`);
+
+    elem.addEventListener('touchstart', () => priceBoard.classList.toggle('popUp'));
   }
 
   for (let i = 0; i < 12; i++) {

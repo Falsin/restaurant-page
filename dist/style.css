@@ -37,6 +37,7 @@ header .container {
   font-weight: 800;
   font-size: 1.8em;
   text-shadow: black 2px 0 5px, black -2px 0 5px, black 0 2px 5px, black 0 -2px 5px;
+  cursor: pointer;
 }
 nav {
   width: auto;
@@ -288,6 +289,8 @@ footer .container {
   cursor: pointer;
 }
 .menu .content {
+  margin-top: 3vmin;
+  margin-bottom: 2vmin;
   width: 100%;
   height: auto;
   display: flex;
@@ -332,6 +335,10 @@ footer .container {
   border-bottom-left-radius: 10px;
 }
 .foodCard:hover .priceBoard {
+  height: 50%;
+  font-size: 1.2em;
+}
+.priceBoard.popUp {
   height: 50%;
   font-size: 1.2em;
 }
