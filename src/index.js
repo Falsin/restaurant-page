@@ -111,7 +111,6 @@ let foodMenu = {
 }
 
 tabs.forEach((item, id) => createContent(id));
-const foodCardsArray = [];
 
 function createContent(id) {
   const box = createELem(tabs[id], 'div', 'class:container');
@@ -155,6 +154,7 @@ function createContent(id) {
 }
 
 function foodCards(parentElem) {
+  const foodCardsArray = [];
   for (const key in foodMenu) {
     const elem = createELem(parentElem, 'div', 'class:foodCard');
     foodCardsArray.push(elem);
