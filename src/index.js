@@ -12,9 +12,7 @@ logo.addEventListener('mousedown', () => {
     item.classList.remove('popUp');
   })
   list.childNodes.forEach(item => item.classList.remove('active'));
-  setTimeout(() => {
-    menu.classList.remove('popUp');
-  }, 1500);
+  menu.classList.remove('popUp');
 })
 
 nav.addEventListener('mousedown', () => {
@@ -153,7 +151,7 @@ function createContent(id) {
   }
 }
 
-function foodCards(parentElem) {
+function foodCards(parentElem) { 
   const foodCardsArray = [];
   for (const key in foodMenu) {
     const elem = createELem(parentElem, 'div', 'class:foodCard');
