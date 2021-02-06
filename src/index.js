@@ -110,7 +110,8 @@ let foodMenu = {
   }
 }
 
-tabs.forEach((item, id) => createContent(id))
+tabs.forEach((item, id) => createContent(id));
+const foodCardsArray = [];
 
 function createContent(id) {
   const box = createELem(tabs[id], 'div', 'class:container');
@@ -156,17 +157,23 @@ function createContent(id) {
 function foodCards(parentElem) {
   for (const key in foodMenu) {
     const elem = createELem(parentElem, 'div', 'class:foodCard');
+    foodCardsArray.push(elem);
     elem.style.backgroundImage = `url(${foodMenu[key].src})`;
     const priceBoard = createELem(elem, 'div', 'class:priceBoard');
     createELem(priceBoard, 'p', 'class:title', `${key}`);
     createELem(priceBoard, 'p', 'class:price', `${foodMenu[key].price}`);
-
-    elem.addEventListener('touchstart', () => priceBoard.classList.toggle('popUp'));
   }
 
   for (let i = 0; i < 12; i++) {
     createELem(parentElem, 'div', 'class:fakeCard');
   }
+
+  foodCardsArray.forEach(item => {
+    item.addEventListener('touchstart', () => {
+      foodCardsArray.forEach(item => item.classList.remove('popUp'));
+      item.classList.add('popUp');
+    })
+  })
 }
 
 let arrayBoxes = [];
